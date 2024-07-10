@@ -72,12 +72,14 @@ const showSubject=async(req,res)=>{
  }
 
 const addSubjectToStudent=async(req,res)=>{
-    const subjectID=req.params.id
-    const {email}=req.body
+  console.log("test")
+  const subjectID = req.params.id;
+  const email = req.params.email;
+    console.log(subjectID)
+    console.log(email)
     const subject =await subjectModel.findById(subjectID)
-    const student = await User.find({"email":email})
     const updatedStudent = await User.findOneAndUpdate(
-        { email },
+        {"email":email},
         { $addToSet: { subject: { subjectID ,
             subjectName:subject.subjectName
         } } },
@@ -111,7 +113,7 @@ const addSubjectToStudent=async(req,res)=>{
       if (!user) {
         return res.status(404).json({ message: 'User not found or subject not assigned' });
       }
-  
+      console.log("Mark")
       res.json({ message: 'Subject new mark updated successfully', updatedUser: user });
     } catch (error) {
       console.error(error);
