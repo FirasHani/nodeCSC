@@ -6,13 +6,13 @@ const subjectSchema = mongoose.Schema(
         type:String
     },
     subjectPassMark:{
-        type:Number
+        type:String
     },
     subjectNewMark:{
-        type:Number
+        type:String
     },
     subjectMin:{
-      type:Number
+      type:String
     },
     student:[
       {

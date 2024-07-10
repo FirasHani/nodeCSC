@@ -24,7 +24,7 @@ const registerUser=asyncHandler(async(req,res)=>{
             _id: user.id,
             name: user.name,
             email: user.email,
-            isAdmain:user.isAdmain,
+            isAdmin:user.isAdmin,
             isActive:user.isActive,
             token: generateToken(user._id),
           })
@@ -47,7 +47,7 @@ const loginUser=asyncHandler(async(req,res)=>{
             _id:user.id,
             name:user.name,
             email:user.email,
-            isAdmain:user.isAdmain,
+            isAdmin:user.isAdmin,
             isActive:user.isActive,
             subject:user.subject,
             token:generateToken(user._id)

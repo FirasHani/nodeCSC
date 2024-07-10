@@ -55,13 +55,16 @@ const createUser=async(req,res)=>{
       }
 }
 
-const createSubject=async(req,res)=>{
-       const {subjectName,subjectMin}=req.body
-       const subject=await subjectModel.create({
-        subjectName,subjectMin
-       }) 
-       res.json(subject)
-}
+const createSubject = async (req, res) => {
+  const { subjectName, subjectMin } = req.body;
+  try {
+      const subject = await subjectModel.create({ subjectName, subjectMin });
+      res.json(subject);
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
 
 const showSubject=async(req,res)=>{
     const data= await subjectModel.find()
