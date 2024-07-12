@@ -16,7 +16,7 @@ const {
     admin
 }=require('../middleware/auth')
 
-router.get('/showAllStudents',protect,admin,showAllStudents)
+router.get('/showAllStudents',showAllStudents)
 router.put('/editStudent/:id',protect,admin,editStudent)
 router.delete('/deleteStudent/:id',protect,admin,deleteStudent)
 router.post('/createUser',protect,admin,createUser)
@@ -25,4 +25,5 @@ router.get('/showSubject',protect,admin,showSubject)
 router.put('/addSubjectToStudent/:id/:email',addSubjectToStudent)
 router.get('/showAllSubjectForOneStudent/:id',protect,admin,showAllSubjectForOneStudent)
 router.put('/addSubjectNewMark/:id',protect,admin,addSubjectNewMark)
+
 module.exports = router
